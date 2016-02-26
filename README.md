@@ -1,4 +1,4 @@
-# securiry
+# security
 [![GoDoc](https://godoc.org/github.com/goutil/security?status.svg)](https://godoc.org/github.com/goutil/security)
 
 Package security provides some useful algorithms for working with security-related things.
