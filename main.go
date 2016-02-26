@@ -1,3 +1,8 @@
+// Package security provides some useful algorithms for working with
+// security-related things.
+//
+// NOTE: You should probably use this package with a grain of salt, I'm not a
+// security expert after all.
 package security
 
 import (
@@ -12,7 +17,8 @@ func SHA1(s string) string {
 	return fmt.Sprintf("%x", sha1.Sum([]byte(s)))
 }
 
-// Returns a 63-bit random (or pseudo random if there's not enough entropy).
+// RandInt63  Returns a 63-bit  random (or pseudo  random if there's  not enough
+// entropy).
 func RandInt63() int64 {
 	b := make([]byte, 8)
 	_, err := rand.Read(b)
@@ -20,7 +26,7 @@ func RandInt63() int64 {
 		return mathrand.Int63()
 	}
 
-	var n uint64 = 0
+	var n uint64
 	shift := uint(0)
 	for i := 0; i < len(b); i++ {
 		n |= uint64(b[i]) << shift
